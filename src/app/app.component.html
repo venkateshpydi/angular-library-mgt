@@ -3,12 +3,20 @@
   <div>Book Name : {{book.name}}</div>
   <div>Thumbnail : {{book.thumbnail}}</div>
 </div> -->
-<input type="text" name="bookName" [(ngModel)] ="name" />{{name}}
+<div class="row">
+<input type="text" name="bookName" [(ngModel)] ="name" #bName />{{name}}
 <br>
-<button (click)="checkName()" >Click Me!</button>
+<button (click)="checkName(bName)" >Click Me!</button>
 <br>
 <app-book *ngFor="let book of books" [book]="book" (selected)="onBookSelected($event)"></app-book>
  
-
+<app-country [countries]="countries"></app-country>
+</div>
+<div class="row">
+  <app-selected-book [book] = "selectedBook" *ngIf="selectedBook">
+    <p> Test Content</p>
+  </app-selected-book>
+</div>
+<app-state [hidden]="!isCountrySelected" ></app-state>
  
 

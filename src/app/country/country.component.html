@@ -1,3 +1,8 @@
-<p>
-  country works!
-</p>
+
+ <select (change)="loadStates($event.target.value)">
+  <option value="0">--All--</option>
+  <option *ngFor="let country of countries" value={{country.code}}> 
+      {{country.name}}
+  </option>
+</select>
+<app-state [hidden]="!isCountrySelected" ></app-state>

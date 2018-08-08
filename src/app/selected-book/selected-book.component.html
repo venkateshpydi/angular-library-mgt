@@ -1,0 +1,10 @@
+<p [ngClass]="className">
+{{book.name}}
+</p>
+<p [ngStyle]=  "{'background-color' : book.code === 'B001' ? 'cyan': 'yellow'}">
+  {{book.code}}
+</p>
+<p  appHighlighter [book]='book'>
+  {{book.code}}
+</p>
+<ng-content></ng-content>
